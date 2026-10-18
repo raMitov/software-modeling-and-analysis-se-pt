@@ -1,5 +1,4 @@
-<mxfile host="app.diagrams.net">
-  <diagram id="logical" name="Logical model (Crow's Foot)">
+<mxfile host="app.diagrams.net"><diagram id="logical" name="Logical model (Crow's Foot)">
     <mxGraphModel dx="1503" dy="1179" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="3000" pageHeight="1400" math="0" shadow="0">
       <root>
         <mxCell id="0" />
@@ -1338,7 +1337,7 @@
             <mxRectangle height="26" width="184" as="alternateBounds" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="t_TitleCredit_PersonID" parent="t_TitleCredit" style="shape=tableRow;horizontal=0;startSize=0;swimlaneHead=0;swimlaneBody=0;fillColor=#FFFFFF;collapsible=0;dropTarget=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;top=0;left=0;right=0;bottom=0;strokeColor=#D79B00;html=1;" value="" vertex="1">
+        <mxCell id="t_TitleCredit_PersonID" parent="t_TitleCredit" style="shape=tableRow;horizontal=0;startSize=0;swimlaneHead=0;swimlaneBody=0;fillColor=#FFFFFF;collapsible=0;dropTarget=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;top=0;left=0;right=0;bottom=1;strokeColor=#D79B00;html=1;" value="" vertex="1">
           <mxGeometry height="26" width="240" y="56" as="geometry" />
         </mxCell>
         <mxCell id="t_TitleCredit_PersonID_k" parent="t_TitleCredit_PersonID" style="shape=partialRectangle;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;fontStyle=1;fontSize=11;overflow=hidden;html=1;whiteSpace=wrap;" value="PK,FK" vertex="1">
@@ -1351,15 +1350,15 @@
             <mxRectangle height="26" width="184" as="alternateBounds" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="t_TitleCredit_Role" parent="t_TitleCredit" style="shape=tableRow;horizontal=0;startSize=0;swimlaneHead=0;swimlaneBody=0;fillColor=#FFFFFF;collapsible=0;dropTarget=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;top=0;left=0;right=0;bottom=1;strokeColor=#D79B00;html=1;" value="" vertex="1">
+        <mxCell id="t_TitleCredit_Role" parent="t_TitleCredit" style="shape=tableRow;horizontal=0;startSize=0;swimlaneHead=0;swimlaneBody=0;fillColor=#FFFFFF;collapsible=0;dropTarget=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;top=0;left=0;right=0;bottom=0;strokeColor=#D79B00;html=1;" value="" vertex="1">
           <mxGeometry height="26" width="240" y="82" as="geometry" />
         </mxCell>
-        <mxCell id="t_TitleCredit_Role_k" parent="t_TitleCredit_Role" style="shape=partialRectangle;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;fontStyle=1;fontSize=11;overflow=hidden;html=1;whiteSpace=wrap;" value="PK" vertex="1">
+        <mxCell id="t_TitleCredit_Role_k" parent="t_TitleCredit_Role" style="shape=partialRectangle;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;fontStyle=1;fontSize=11;overflow=hidden;html=1;whiteSpace=wrap;" value="" vertex="1">
           <mxGeometry height="26" width="56" as="geometry">
             <mxRectangle height="26" width="56" as="alternateBounds" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="t_TitleCredit_Role_n" parent="t_TitleCredit_Role" style="shape=partialRectangle;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;align=left;spacingLeft=6;fontStyle=5;overflow=hidden;html=1;whiteSpace=wrap;" value="Role" vertex="1">
+        <mxCell id="t_TitleCredit_Role_n" parent="t_TitleCredit_Role" style="shape=partialRectangle;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;align=left;spacingLeft=6;fontStyle=0;overflow=hidden;html=1;whiteSpace=wrap;" value="Role" vertex="1">
           <mxGeometry height="26" width="184" x="56" as="geometry">
             <mxRectangle height="26" width="184" as="alternateBounds" />
           </mxGeometry>
@@ -1506,82 +1505,82 @@
             <mxRectangle height="26" width="184" as="alternateBounds" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="r0" edge="1" parent="1" source="t_Region_RegionID" style="edgeStyle=entityRelationEdgeStyle;html=1;rounded=0;startArrow=ERmandOne;endArrow=ERoneToMany;startFill=0;endFill=0;startSize=10;endSize=10;strokeColor=#4D4D4D;" target="t_Country_RegionID">
+        <mxCell id="r0" edge="1" parent="1" source="t_Region_RegionID" style="edgeStyle=entityRelationEdgeStyle;html=1;rounded=0;startArrow=ERmandOne;endArrow=ERoneToMany;startFill=0;endFill=0;startSize=10;endSize=10;strokeColor=#4D4D4D;fontSize=10;fontColor=#555555;labelBackgroundColor=#FFFFFF;" target="t_Country_RegionID" value="contains / is in">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="r1" edge="1" parent="1" source="t_Country_CountryID" style="edgeStyle=entityRelationEdgeStyle;html=1;rounded=0;startArrow=ERmandOne;endArrow=ERzeroToMany;startFill=0;endFill=0;startSize=10;endSize=10;strokeColor=#4D4D4D;" target="t_Account_CountryID">
+        <mxCell id="r1" edge="1" parent="1" source="t_Country_CountryID" style="edgeStyle=entityRelationEdgeStyle;html=1;rounded=0;startArrow=ERmandOne;endArrow=ERzeroToMany;startFill=0;endFill=0;startSize=10;endSize=10;strokeColor=#4D4D4D;fontSize=10;fontColor=#555555;labelBackgroundColor=#FFFFFF;" target="t_Account_CountryID" value="registers / is registered in">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="r2" edge="1" parent="1" source="t_Country_CountryID" style="edgeStyle=entityRelationEdgeStyle;html=1;rounded=0;startArrow=ERmandOne;endArrow=ERzeroToMany;startFill=0;endFill=0;startSize=10;endSize=10;strokeColor=#4D4D4D;" target="t_PlanPrice_CountryID">
+        <mxCell id="r2" edge="1" parent="1" source="t_Country_CountryID" style="edgeStyle=entityRelationEdgeStyle;html=1;rounded=0;startArrow=ERmandOne;endArrow=ERzeroToMany;startFill=0;endFill=0;startSize=10;endSize=10;strokeColor=#4D4D4D;fontSize=10;fontColor=#555555;labelBackgroundColor=#FFFFFF;" target="t_PlanPrice_CountryID" value="offers / is offered in">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="r3" edge="1" parent="1" source="t_Currency_CurrencyCode" style="edgeStyle=entityRelationEdgeStyle;html=1;rounded=0;startArrow=ERmandOne;endArrow=ERzeroToMany;startFill=0;endFill=0;startSize=10;endSize=10;strokeColor=#4D4D4D;" target="t_ExchangeRate_CurrencyCode">
+        <mxCell id="r3" edge="1" parent="1" source="t_Currency_CurrencyCode" style="edgeStyle=entityRelationEdgeStyle;html=1;rounded=0;startArrow=ERmandOne;endArrow=ERzeroToMany;startFill=0;endFill=0;startSize=10;endSize=10;strokeColor=#4D4D4D;fontSize=10;fontColor=#555555;labelBackgroundColor=#FFFFFF;" target="t_ExchangeRate_CurrencyCode" value="has / is rate of">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="r4" edge="1" parent="1" source="t_Currency_CurrencyCode" style="edgeStyle=entityRelationEdgeStyle;html=1;rounded=0;startArrow=ERmandOne;endArrow=ERzeroToMany;startFill=0;endFill=0;startSize=10;endSize=10;strokeColor=#4D4D4D;" target="t_PlanPrice_CurrencyCode">
+        <mxCell id="r4" edge="1" parent="1" source="t_Currency_CurrencyCode" style="edgeStyle=entityRelationEdgeStyle;html=1;rounded=0;startArrow=ERmandOne;endArrow=ERzeroToMany;startFill=0;endFill=0;startSize=10;endSize=10;strokeColor=#4D4D4D;fontSize=10;fontColor=#555555;labelBackgroundColor=#FFFFFF;" target="t_PlanPrice_CurrencyCode" value="prices / is priced in">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="r5" edge="1" parent="1" source="t_Currency_CurrencyCode" style="edgeStyle=entityRelationEdgeStyle;html=1;rounded=0;startArrow=ERmandOne;endArrow=ERzeroToMany;startFill=0;endFill=0;startSize=10;endSize=10;strokeColor=#4D4D4D;" target="t_Payment_CurrencyCode">
+        <mxCell id="r5" edge="1" parent="1" source="t_Currency_CurrencyCode" style="edgeStyle=entityRelationEdgeStyle;html=1;rounded=0;startArrow=ERmandOne;endArrow=ERzeroToMany;startFill=0;endFill=0;startSize=10;endSize=10;strokeColor=#4D4D4D;fontSize=10;fontColor=#555555;labelBackgroundColor=#FFFFFF;" target="t_Payment_CurrencyCode" value="is used by / is paid in">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="r6" edge="1" parent="1" source="t_Account_AccountID" style="edgeStyle=entityRelationEdgeStyle;html=1;rounded=0;startArrow=ERmandOne;endArrow=ERoneToMany;startFill=0;endFill=0;startSize=10;endSize=10;strokeColor=#4D4D4D;" target="t_Profile_AccountID">
+        <mxCell id="r6" edge="1" parent="1" source="t_Account_AccountID" style="edgeStyle=entityRelationEdgeStyle;html=1;rounded=0;startArrow=ERmandOne;endArrow=ERoneToMany;startFill=0;endFill=0;startSize=10;endSize=10;strokeColor=#4D4D4D;fontSize=10;fontColor=#555555;labelBackgroundColor=#FFFFFF;" target="t_Profile_AccountID" value="has / belongs to">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="r7" edge="1" parent="1" source="t_Account_AccountID" style="edgeStyle=entityRelationEdgeStyle;html=1;rounded=0;startArrow=ERmandOne;endArrow=ERzeroToMany;startFill=0;endFill=0;startSize=10;endSize=10;strokeColor=#4D4D4D;" target="t_Device_AccountID">
+        <mxCell id="r7" edge="1" parent="1" source="t_Account_AccountID" style="edgeStyle=entityRelationEdgeStyle;html=1;rounded=0;startArrow=ERmandOne;endArrow=ERzeroToMany;startFill=0;endFill=0;startSize=10;endSize=10;strokeColor=#4D4D4D;fontSize=10;fontColor=#555555;labelBackgroundColor=#FFFFFF;" target="t_Device_AccountID" value="owns / is owned by">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="r8" edge="1" parent="1" source="t_Account_AccountID" style="edgeStyle=entityRelationEdgeStyle;html=1;rounded=0;startArrow=ERmandOne;endArrow=ERoneToMany;startFill=0;endFill=0;startSize=10;endSize=10;strokeColor=#4D4D4D;" target="t_Subscription_AccountID">
+        <mxCell id="r8" edge="1" parent="1" source="t_Account_AccountID" style="edgeStyle=entityRelationEdgeStyle;html=1;rounded=0;startArrow=ERmandOne;endArrow=ERoneToMany;startFill=0;endFill=0;startSize=10;endSize=10;strokeColor=#4D4D4D;fontSize=10;fontColor=#555555;labelBackgroundColor=#FFFFFF;" target="t_Subscription_AccountID" value="holds / is held by">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="r9" edge="1" parent="1" source="t_Plan_PlanID" style="edgeStyle=entityRelationEdgeStyle;html=1;rounded=0;startArrow=ERmandOne;endArrow=ERoneToMany;startFill=0;endFill=0;startSize=10;endSize=10;strokeColor=#4D4D4D;" target="t_PlanPrice_PlanID">
+        <mxCell id="r9" edge="1" parent="1" source="t_Plan_PlanID" style="edgeStyle=entityRelationEdgeStyle;html=1;rounded=0;startArrow=ERmandOne;endArrow=ERoneToMany;startFill=0;endFill=0;startSize=10;endSize=10;strokeColor=#4D4D4D;fontSize=10;fontColor=#555555;labelBackgroundColor=#FFFFFF;" target="t_PlanPrice_PlanID" value="has / is price of">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="r10" edge="1" parent="1" source="t_Plan_PlanID" style="edgeStyle=entityRelationEdgeStyle;html=1;rounded=0;startArrow=ERmandOne;endArrow=ERzeroToMany;startFill=0;endFill=0;startSize=10;endSize=10;strokeColor=#4D4D4D;" target="t_Subscription_PlanID">
+        <mxCell id="r10" edge="1" parent="1" source="t_Plan_PlanID" style="edgeStyle=entityRelationEdgeStyle;html=1;rounded=0;startArrow=ERmandOne;endArrow=ERzeroToMany;startFill=0;endFill=0;startSize=10;endSize=10;strokeColor=#4D4D4D;fontSize=10;fontColor=#555555;labelBackgroundColor=#FFFFFF;" target="t_Subscription_PlanID" value="is chosen in / subscribes to">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="r11" edge="1" parent="1" source="t_Subscription_SubscriptionID" style="edgeStyle=entityRelationEdgeStyle;html=1;rounded=0;startArrow=ERmandOne;endArrow=ERzeroToMany;startFill=0;endFill=0;startSize=10;endSize=10;strokeColor=#4D4D4D;" target="t_Payment_SubscriptionID">
+        <mxCell id="r11" edge="1" parent="1" source="t_Subscription_SubscriptionID" style="edgeStyle=entityRelationEdgeStyle;html=1;rounded=0;startArrow=ERmandOne;endArrow=ERzeroToMany;startFill=0;endFill=0;startSize=10;endSize=10;strokeColor=#4D4D4D;fontSize=10;fontColor=#555555;labelBackgroundColor=#FFFFFF;" target="t_Payment_SubscriptionID" value="is billed by / pays for">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="r12" edge="1" parent="1" source="t_MaturityRating_MaturityRatingID" style="edgeStyle=entityRelationEdgeStyle;html=1;rounded=0;startArrow=ERmandOne;endArrow=ERzeroToMany;startFill=0;endFill=0;startSize=10;endSize=10;strokeColor=#4D4D4D;" target="t_Profile_MaxMaturityRatingID">
+        <mxCell id="r12" edge="1" parent="1" source="t_MaturityRating_MaturityRatingID" style="edgeStyle=entityRelationEdgeStyle;html=1;rounded=0;startArrow=ERmandOne;endArrow=ERzeroToMany;startFill=0;endFill=0;startSize=10;endSize=10;strokeColor=#4D4D4D;fontSize=10;fontColor=#555555;labelBackgroundColor=#FFFFFF;" target="t_Profile_MaxMaturityRatingID" value="limits / is limited by">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="r13" edge="1" parent="1" source="t_MaturityRating_MaturityRatingID" style="edgeStyle=entityRelationEdgeStyle;html=1;rounded=0;startArrow=ERmandOne;endArrow=ERzeroToMany;startFill=0;endFill=0;startSize=10;endSize=10;strokeColor=#4D4D4D;" target="t_Title_MaturityRatingID">
+        <mxCell id="r13" edge="1" parent="1" source="t_MaturityRating_MaturityRatingID" style="edgeStyle=entityRelationEdgeStyle;html=1;rounded=0;startArrow=ERmandOne;endArrow=ERzeroToMany;startFill=0;endFill=0;startSize=10;endSize=10;strokeColor=#4D4D4D;fontSize=10;fontColor=#555555;labelBackgroundColor=#FFFFFF;" target="t_Title_MaturityRatingID" value="classifies / is classified by">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="r14" edge="1" parent="1" source="t_Title_TitleID" style="edgeStyle=entityRelationEdgeStyle;html=1;rounded=0;startArrow=ERmandOne;endArrow=ERzeroToMany;startFill=0;endFill=0;startSize=10;endSize=10;strokeColor=#4D4D4D;" target="t_Season_TitleID">
+        <mxCell id="r14" edge="1" parent="1" source="t_Title_TitleID" style="edgeStyle=entityRelationEdgeStyle;html=1;rounded=0;startArrow=ERmandOne;endArrow=ERzeroToMany;startFill=0;endFill=0;startSize=10;endSize=10;strokeColor=#4D4D4D;fontSize=10;fontColor=#555555;labelBackgroundColor=#FFFFFF;" target="t_Season_TitleID" value="has / is part of">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="r15" edge="1" parent="1" source="t_Season_SeasonID" style="edgeStyle=entityRelationEdgeStyle;html=1;rounded=0;startArrow=ERmandOne;endArrow=ERoneToMany;startFill=0;endFill=0;startSize=10;endSize=10;strokeColor=#4D4D4D;" target="t_Episode_SeasonID">
+        <mxCell id="r15" edge="1" parent="1" source="t_Season_SeasonID" style="edgeStyle=entityRelationEdgeStyle;html=1;rounded=0;startArrow=ERmandOne;endArrow=ERoneToMany;startFill=0;endFill=0;startSize=10;endSize=10;strokeColor=#4D4D4D;fontSize=10;fontColor=#555555;labelBackgroundColor=#FFFFFF;" target="t_Episode_SeasonID" value="has / is part of">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="r16" edge="1" parent="1" source="t_Title_TitleID" style="edgeStyle=entityRelationEdgeStyle;html=1;rounded=0;startArrow=ERmandOne;endArrow=ERoneToMany;startFill=0;endFill=0;startSize=10;endSize=10;strokeColor=#4D4D4D;" target="t_TitleGenre_TitleID">
+        <mxCell id="r16" edge="1" parent="1" source="t_Title_TitleID" style="edgeStyle=entityRelationEdgeStyle;html=1;rounded=0;startArrow=ERmandOne;endArrow=ERoneToMany;startFill=0;endFill=0;startSize=10;endSize=10;strokeColor=#4D4D4D;fontSize=10;fontColor=#555555;labelBackgroundColor=#FFFFFF;" target="t_TitleGenre_TitleID" value="involves / is involved in">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="r17" edge="1" parent="1" source="t_Genre_GenreID" style="edgeStyle=entityRelationEdgeStyle;html=1;rounded=0;startArrow=ERmandOne;endArrow=ERzeroToMany;startFill=0;endFill=0;startSize=10;endSize=10;strokeColor=#4D4D4D;" target="t_TitleGenre_GenreID">
+        <mxCell id="r17" edge="1" parent="1" source="t_Genre_GenreID" style="edgeStyle=entityRelationEdgeStyle;html=1;rounded=0;startArrow=ERmandOne;endArrow=ERzeroToMany;startFill=0;endFill=0;startSize=10;endSize=10;strokeColor=#4D4D4D;fontSize=10;fontColor=#555555;labelBackgroundColor=#FFFFFF;" target="t_TitleGenre_GenreID" value="involves / is involved in">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="r18" edge="1" parent="1" source="t_Title_TitleID" style="edgeStyle=entityRelationEdgeStyle;html=1;rounded=0;startArrow=ERmandOne;endArrow=ERzeroToMany;startFill=0;endFill=0;startSize=10;endSize=10;strokeColor=#4D4D4D;" target="t_TitleCredit_TitleID">
+        <mxCell id="r18" edge="1" parent="1" source="t_Title_TitleID" style="edgeStyle=entityRelationEdgeStyle;html=1;rounded=0;startArrow=ERmandOne;endArrow=ERzeroToMany;startFill=0;endFill=0;startSize=10;endSize=10;strokeColor=#4D4D4D;fontSize=10;fontColor=#555555;labelBackgroundColor=#FFFFFF;" target="t_TitleCredit_TitleID" value="involves / is involved in">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="r19" edge="1" parent="1" source="t_Person_PersonID" style="edgeStyle=entityRelationEdgeStyle;html=1;rounded=0;startArrow=ERmandOne;endArrow=ERoneToMany;startFill=0;endFill=0;startSize=10;endSize=10;strokeColor=#4D4D4D;" target="t_TitleCredit_PersonID">
+        <mxCell id="r19" edge="1" parent="1" source="t_Person_PersonID" style="edgeStyle=entityRelationEdgeStyle;html=1;rounded=0;startArrow=ERmandOne;endArrow=ERoneToMany;startFill=0;endFill=0;startSize=10;endSize=10;strokeColor=#4D4D4D;fontSize=10;fontColor=#555555;labelBackgroundColor=#FFFFFF;" target="t_TitleCredit_PersonID" value="involves / is involved in">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="r20" edge="1" parent="1" source="t_Profile_ProfileID" style="edgeStyle=entityRelationEdgeStyle;html=1;rounded=0;startArrow=ERmandOne;endArrow=ERzeroToMany;startFill=0;endFill=0;startSize=10;endSize=10;strokeColor=#4D4D4D;" target="t_WatchSession_ProfileID">
+        <mxCell id="r20" edge="1" parent="1" source="t_Profile_ProfileID" style="edgeStyle=entityRelationEdgeStyle;html=1;rounded=0;startArrow=ERmandOne;endArrow=ERzeroToMany;startFill=0;endFill=0;startSize=10;endSize=10;strokeColor=#4D4D4D;fontSize=10;fontColor=#555555;labelBackgroundColor=#FFFFFF;" target="t_WatchSession_ProfileID" value="starts / is started by">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="r21" edge="1" parent="1" source="t_Device_DeviceID" style="edgeStyle=entityRelationEdgeStyle;html=1;rounded=0;startArrow=ERmandOne;endArrow=ERzeroToMany;startFill=0;endFill=0;startSize=10;endSize=10;strokeColor=#4D4D4D;" target="t_WatchSession_DeviceID">
+        <mxCell id="r21" edge="1" parent="1" source="t_Device_DeviceID" style="edgeStyle=entityRelationEdgeStyle;html=1;rounded=0;startArrow=ERmandOne;endArrow=ERzeroToMany;startFill=0;endFill=0;startSize=10;endSize=10;strokeColor=#4D4D4D;fontSize=10;fontColor=#555555;labelBackgroundColor=#FFFFFF;" target="t_WatchSession_DeviceID" value="plays / is played on">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="r22" edge="1" parent="1" source="t_Title_TitleID" style="edgeStyle=entityRelationEdgeStyle;html=1;rounded=0;startArrow=ERmandOne;endArrow=ERzeroToMany;startFill=0;endFill=0;startSize=10;endSize=10;strokeColor=#4D4D4D;" target="t_WatchSession_TitleID">
+        <mxCell id="r22" edge="1" parent="1" source="t_Title_TitleID" style="edgeStyle=entityRelationEdgeStyle;html=1;rounded=0;startArrow=ERmandOne;endArrow=ERzeroToMany;startFill=0;endFill=0;startSize=10;endSize=10;strokeColor=#4D4D4D;fontSize=10;fontColor=#555555;labelBackgroundColor=#FFFFFF;" target="t_WatchSession_TitleID" value="is watched in / views">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="r23" edge="1" parent="1" source="t_Episode_EpisodeID" style="edgeStyle=entityRelationEdgeStyle;html=1;rounded=0;startArrow=ERzeroToOne;endArrow=ERzeroToMany;startFill=0;endFill=0;startSize=10;endSize=10;strokeColor=#4D4D4D;" target="t_WatchSession_EpisodeID">
+        <mxCell id="r23" edge="1" parent="1" source="t_Episode_EpisodeID" style="edgeStyle=entityRelationEdgeStyle;html=1;rounded=0;startArrow=ERzeroToOne;endArrow=ERzeroToMany;startFill=0;endFill=0;startSize=10;endSize=10;strokeColor=#4D4D4D;fontSize=10;fontColor=#555555;labelBackgroundColor=#FFFFFF;" target="t_WatchSession_EpisodeID" value="is watched in / views">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="r24" edge="1" parent="1" source="t_Profile_ProfileID" style="edgeStyle=entityRelationEdgeStyle;html=1;rounded=0;startArrow=ERmandOne;endArrow=ERzeroToMany;startFill=0;endFill=0;startSize=10;endSize=10;strokeColor=#4D4D4D;" target="t_Rating_ProfileID">
+        <mxCell id="r24" edge="1" parent="1" source="t_Profile_ProfileID" style="edgeStyle=entityRelationEdgeStyle;html=1;rounded=0;startArrow=ERmandOne;endArrow=ERzeroToMany;startFill=0;endFill=0;startSize=10;endSize=10;strokeColor=#4D4D4D;fontSize=10;fontColor=#555555;labelBackgroundColor=#FFFFFF;" target="t_Rating_ProfileID" value="gives / is given by">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="r25" edge="1" parent="1" source="t_Title_TitleID" style="edgeStyle=entityRelationEdgeStyle;html=1;rounded=0;startArrow=ERmandOne;endArrow=ERzeroToMany;startFill=0;endFill=0;startSize=10;endSize=10;strokeColor=#4D4D4D;" target="t_Rating_TitleID">
+        <mxCell id="r25" edge="1" parent="1" source="t_Title_TitleID" style="edgeStyle=entityRelationEdgeStyle;html=1;rounded=0;startArrow=ERmandOne;endArrow=ERzeroToMany;startFill=0;endFill=0;startSize=10;endSize=10;strokeColor=#4D4D4D;fontSize=10;fontColor=#555555;labelBackgroundColor=#FFFFFF;" target="t_Rating_TitleID" value="receives / is given to">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="legend" parent="1" style="rounded=1;arcSize=4;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacing=10;fillColor=#FFFFFF;strokeColor=#999999;fontSize=12;" value="&lt;b&gt;Legend&lt;/b&gt;&lt;br&gt;&lt;span style=&quot;background:#DAE8FC;border:1px solid #6C8EBF;&quot;&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&amp;nbsp;Geography &amp; currency&lt;br&gt;&lt;span style=&quot;background:#E1D5E7;border:1px solid #9673A6;&quot;&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&amp;nbsp;Customers&lt;br&gt;&lt;span style=&quot;background:#D5E8D4;border:1px solid #82B366;&quot;&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&amp;nbsp;Billing&lt;br&gt;&lt;span style=&quot;background:#FFE6CC;border:1px solid #D79B00;&quot;&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&amp;nbsp;Catalog&lt;br&gt;&lt;span style=&quot;background:#F8CECC;border:1px solid #B85450;&quot;&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&amp;nbsp;Activity&lt;br&gt;&lt;br&gt;&lt;b&gt;PK&lt;/b&gt; primary key &amp;nbsp; &lt;b&gt;FK&lt;/b&gt; foreign key&lt;br&gt;&lt;b&gt;UK&lt;/b&gt; unique (business key) &amp;nbsp; &lt;b&gt;U1&lt;/b&gt; composite unique&lt;br&gt;Notation: Crow's Foot" vertex="1">
