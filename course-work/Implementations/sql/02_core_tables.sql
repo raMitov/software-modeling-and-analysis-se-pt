@@ -18,7 +18,10 @@ GO
 USE NetflixDB;
 GO
 
-/* ---------- drop (children first) ---------- */
+/* ---------- drop (children first) ----------
+   Schema-bound functions (05_functions.sql) lock the tables they read,
+   so they are dropped first; re-run 05 and 06 after this script. */
+DROP FUNCTION IF EXISTS core.fn_ActiveSubscriptions, core.fn_ConvertToUSD;
 DROP TABLE IF EXISTS core.Rating, core.WatchSession, core.TitleCredit, core.TitleGenre,
                      core.Episode, core.Season, core.Person, core.Genre, core.Title,
                      core.Payment, core.Subscription, core.PlanPrice, core.[Plan],
