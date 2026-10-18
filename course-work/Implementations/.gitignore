@@ -1,2 +1,8 @@
 # Helper scripts used to build the project (not part of the deliverable)
 _dev/
+
+# Generator downloads and API cache (rebuilt by data/generator/build_catalog.py)
+data/generator/.cache/
+
+# Generated load batches (rebuilt by data/generator/simulate.py, read by sql/09 and sql/10)
+data/batches/
