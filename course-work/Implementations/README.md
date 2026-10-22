@@ -46,6 +46,9 @@ data/generator/
   catalog.json                      913 titles with metadata and hours viewed (committed input)
   exchange_rates_usd.csv            daily USD rates (committed input)
 data/batches/                       generated CSV batches - NOT committed (see step 2)
+powerbi/
+  Netflix_Power_Bi_Report.pbix      the report (Import mode, 2 pages)
+  netflix_dark_theme.json           report theme (colors, dark backgrounds, rounded corners)
 ```
 
 ## Prerequisites
@@ -125,7 +128,11 @@ sqlcmd -S ".\SQLEXPRESS" -E -C -b -i sql/10_load_day.sql
 It prints the rows staged, inserted/updated in core and in the warehouse, and the new `DataAsOf` date. Running the
 same day twice is safe - nothing is loaded twice. Refresh the Power BI report to see the new day.
 
-**6. Power BI** - open the report and connect to server `.\SQLEXPRESS`, database `NetflixDB`, schema `dw`.
+**6. Power BI** - open `powerbi/Netflix_Power_Bi_Report.pbix` in Power BI Desktop. It reads the `dw` schema of
+`NetflixDB` on a local SQL Server Express instance (Windows authentication, Import mode). To point it at your
+server: Home → Transform data → **Data source settings** → **Change source** → enter your server
+(e.g. `localhost\SQLEXPRESS`) → OK. Then **Refresh**.
+After a live load (step 5), click **Refresh** to see the new day ("Data as of" in the header moves forward).
 
 **Start over**: run step 4 again starting from `02_core_tables.sql` (02 and 04 drop and recreate their tables, so all data
 is reloaded from the batches).
@@ -142,6 +149,23 @@ CSV batch folder ──stg.usp_ImportBatch──► stg  (BULK INSERT, 14 files)
 - Loads are idempotent: rows are matched on business keys (e-mail, GUIDs, source keys), so re-running a batch adds nothing.
 - Rules that constraints cannot express are enforced by the triggers (maturity limit, episode/title and device/account
   consistency, no overlapping subscriptions) and by the load procedure (viewing only during an active subscription).
+
+## Power BI report
+
+Built on the star schema (`dw`): 3 fact tables, 7 dimensions and the title-genre bridge, 15 relationships
+(all one-to-many; `BridgeTitleGenre → DimTitle` filters in both directions so genres can filter titles).
+Navigation between the two pages with the page navigator in the header; the four slicers (period, region,
+country, plan) are synced across both pages.
+
+- **Executive overview** - KPI cards (paying members, revenue, ARPM, average monthly churn, hours viewed,
+  positive ratings), revenue and paying members by month, plan mix, revenue by region, monthly churn,
+  paying members by country, top 10 titles by views.
+- **Analytics** - viewing heatmap (weekday × local hour), device mix through the day, genres (hours and
+  completion rate), content quadrant (views vs completion per title), episode drop-off.
+
+Key measures: *Paying members* = members with a successful payment in the last month of the selection;
+*Churn rate* = members who paid last month but not this month; *ARPM* = revenue ÷ paid member-months;
+*Views* = hours viewed ÷ runtime (Netflix's own metric).
 
 ## Data sources
 
