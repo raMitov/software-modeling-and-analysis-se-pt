@@ -1,21 +1,4 @@
-/* =============================================================================
-   04_dw_tables.sql
-   Data warehouse (dw) - fact constellation: 3 fact tables sharing dimensions.
 
-     Fact          Grain (one row = ...)          Dimensions
-     FactViewing   one watch session              Date, Account, Profile, Title, Plan, Device
-     FactPayment   one payment attempt            Date, Account, Plan
-     FactRating    one rating (profile x title)   Date, Account, Profile, Title
-     Genre is many-to-many with Title -> DimGenre + BridgeTitleGenre.
-
-   Conventions
-     - Dimensions: surrogate key (xxxKey, IDENTITY) + core business key (xxxID, UNIQUE).
-       Slowly changing type 1: attributes are overwritten when they change.
-     - Facts: the core row ID is kept as a degenerate key and is the primary key,
-       which makes incremental loads simple and every fact row traceable.
-     - Filled by dw.usp_LoadWarehouse (07_procedures.sql); DimDate is static and filled here.
-   Re-runnable: drops and recreates all dw tables (all dw data is lost).
-   ============================================================================= */
 SET ANSI_NULLS ON;
 SET QUOTED_IDENTIFIER ON;
 GO
@@ -130,7 +113,6 @@ CREATE TABLE dw.DimDevice
     CONSTRAINT UQ_DimDevice_DeviceID UNIQUE (DeviceID)
 );
 
-/* ========================= Facts ========================= */
 CREATE TABLE dw.FactViewing
 (
     WatchSessionID        INT          NOT NULL,   -- degenerate key (core.WatchSession)
@@ -189,8 +171,6 @@ CREATE TABLE dw.FactRating
 );
 GO
 
-/* ========================= DimDate: static calendar 2023-01-01 .. 2026-12-31 =========================
-   Language-independent: names via CHOOSE, ISO weekday from a known Monday (1900-01-01). */
 DECLARE @From DATE = '2023-01-01', @To DATE = '2026-12-31';
 
 WITH n AS

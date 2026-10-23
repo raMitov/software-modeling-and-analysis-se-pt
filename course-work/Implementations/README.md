@@ -40,6 +40,7 @@ sql/
   08_reference_data.sql             regions, countries, currencies, plans, prices, ratings, genres
   09_load_history.sql               loads every history batch, then builds the warehouse
   10_load_day.sql                   live demo: loads one day end to end
+  11_load_days.sql                  live demo: loads a range of days, then the warehouse once
 data/generator/
   build_catalog.py                  builds catalog.json + exchange_rates_usd.csv from the public sources
   simulate.py                       generates the CSV batches from catalog.json
@@ -127,6 +128,9 @@ sqlcmd -S ".\SQLEXPRESS" -E -C -b -i sql/10_load_day.sql
 
 It prints the rows staged, inserted/updated in core and in the warehouse, and the new `DataAsOf` date. Running the
 same day twice is safe - nothing is loaded twice. Refresh the Power BI report to see the new day.
+
+To load several days at once, set `@FromDay` and `@ToDay` in `sql/11_load_days.sql` and run it. Days are loaded in
+date order (a day can refer to rows created the day before), then the warehouse is refreshed once.
 
 **6. Power BI** - open `powerbi/Netflix_Power_Bi_Report.pbix` in Power BI Desktop. It reads the `dw` schema of
 `NetflixDB` on a local SQL Server Express instance (Windows authentication, Import mode). To point it at your

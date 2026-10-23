@@ -1,9 +1,4 @@
-/* =============================================================================
-   05_functions.sql
-   fn_ConvertToUSD        - scalar: local amount -> USD on a given date
-   fn_ActiveSubscriptions - inline table-valued: subscriptions active on a date
-   Re-runnable (CREATE OR ALTER).
-   ============================================================================= */
+
 SET ANSI_NULLS ON;
 SET QUOTED_IDENTIFIER ON;
 GO
@@ -24,7 +19,6 @@ RETURNS DECIMAL(12,2)
 WITH SCHEMABINDING
 AS
 BEGIN
-    -- single RETURN expression keeps the function eligible for scalar UDF inlining
     RETURN CASE
                WHEN @CurrencyCode = 'USD' THEN @Amount
                ELSE

@@ -1,17 +1,4 @@
-/* =============================================================================
-   07_procedures.sql
-   stg.usp_ImportBatch      - CSV files of one batch folder -> staging (stg)
-   core.usp_LoadFromStaging - raw (stg) -> normalised model (core)
-   dw.usp_LoadWarehouse     - core -> star schema (dw)
-
-   The two load procedures
-     - run as one transaction (all or nothing), XACT_ABORT ON, TRY/CATCH + THROW
-     - are idempotent: rows already loaded are skipped (matched on business keys),
-       so running the same batch twice changes nothing
-     - fail fast with a clear message instead of silently dropping rows
-     - return one result set: rows inserted / updated per table
-   Re-runnable (CREATE OR ALTER).
-   ============================================================================= */
+/* ============================================================================= */
 SET ANSI_NULLS ON;
 SET QUOTED_IDENTIFIER ON;
 GO
@@ -19,13 +6,7 @@ GO
 USE NetflixDB;
 GO
 
-/* =============================================================================
-   stg.usp_ImportBatch
-   Empties staging and bulk-loads the 14 CSV files of one batch folder
-   (data/batches/history/YYYY-MM or data/batches/daily/YYYY-MM-DD).
-   Files: UTF-8, header row, comma separated, quoted when needed, empty = NULL.
-   The SQL Server service account needs read access to the folder.
-   ============================================================================= */
+/*  ============================================================================= */
 CREATE OR ALTER PROCEDURE stg.usp_ImportBatch
     @Folder NVARCHAR(400)
 AS
@@ -73,13 +54,7 @@ BEGIN
 END;
 GO
 
-/* =============================================================================
-   core.usp_LoadFromStaging
-   Moves the current batch from stg into core in dependency order. Business keys
-   in the files (Email, SourceKey, Guid ...) are resolved to core IDs. Triggers on
-   core validate the cross-table rules; rule 3 (viewing only during an active
-   subscription) is checked here with core.fn_ActiveSubscriptions.
-   ============================================================================= */
+/* load from staging to core */
 CREATE OR ALTER PROCEDURE core.usp_LoadFromStaging
 AS
 BEGIN
@@ -367,13 +342,7 @@ BEGIN
 END;
 GO
 
-/* =============================================================================
-   dw.usp_LoadWarehouse
-   Refreshes the star schema from core: dimensions first (type 1 - new rows
-   inserted, changed attributes overwritten), then facts incrementally (only
-   core rows not yet in the fact table). A final reconciliation guarantees no
-   core row was skipped.
-   ============================================================================= */
+/* loads warehouse objects */
 CREATE OR ALTER PROCEDURE dw.usp_LoadWarehouse
 AS
 BEGIN
@@ -531,7 +500,10 @@ BEGIN
         SET @ins = @@ROWCOUNT;
         INSERT INTO @Result VALUES (N'DimDevice', @ins, @upd);
 
-        /* ---------- FactViewing (new sessions only) ---------- */
+        /* ---------- FactViewing (new sessions only) ----------
+           Watermark: core IDs only ever increase, so only sessions above the highest one already
+           in the fact table are read (a few rows instead of the whole table). NOT EXISTS stays as a guard. */
+        DECLARE @LastSessionID INT = (SELECT ISNULL(MAX(WatchSessionID), 0) FROM dw.FactViewing);
         INSERT INTO dw.FactViewing (WatchSessionID, DateKey, StartHourLocal, AccountKey, ProfileKey, TitleKey,
                                     PlanKey, DeviceKey, SeasonNumber, EpisodeNumber, WatchedSeconds,
                                     ContentRuntimeMinutes, ProgressPct, IsCompleted)
@@ -556,11 +528,14 @@ BEGIN
         JOIN   dw.DimTitle       AS dt  ON dt.TitleID = ws.TitleID
         JOIN   dw.DimPlan        AS dpl ON dpl.PlanID = sub.PlanID
         JOIN   dw.DimDevice      AS dd  ON dd.DeviceID = ws.DeviceID
-        WHERE  NOT EXISTS (SELECT 1 FROM dw.FactViewing AS f WHERE f.WatchSessionID = ws.WatchSessionID);
+        WHERE  ws.WatchSessionID > @LastSessionID
+          AND  NOT EXISTS (SELECT 1 FROM dw.FactViewing AS f WHERE f.WatchSessionID = ws.WatchSessionID)
+        OPTION (RECOMPILE);
         SET @ins = @@ROWCOUNT;
         INSERT INTO @Result VALUES (N'FactViewing', @ins, 0);
 
-        /* ---------- FactPayment (new payments only) ---------- */
+        /* ---------- FactPayment (new payments only, same watermark idea) ---------- */
+        DECLARE @LastPaymentID INT = (SELECT ISNULL(MAX(PaymentID), 0) FROM dw.FactPayment);
         INSERT INTO dw.FactPayment (PaymentID, DateKey, AccountKey, PlanKey, BillingPeriodStart, CurrencyCode,
                                     AmountLocal, AmountUSD, PaymentStatus, PaymentMethod)
         SELECT pay.PaymentID,
@@ -573,7 +548,9 @@ BEGIN
         JOIN   core.Subscription AS sub ON sub.SubscriptionID = pay.SubscriptionID
         JOIN   dw.DimAccount     AS da  ON da.AccountID = sub.AccountID
         JOIN   dw.DimPlan        AS dpl ON dpl.PlanID = sub.PlanID
-        WHERE  NOT EXISTS (SELECT 1 FROM dw.FactPayment AS f WHERE f.PaymentID = pay.PaymentID);
+        WHERE  pay.PaymentID > @LastPaymentID
+          AND  NOT EXISTS (SELECT 1 FROM dw.FactPayment AS f WHERE f.PaymentID = pay.PaymentID)
+        OPTION (RECOMPILE);
         SET @ins = @@ROWCOUNT;
         INSERT INTO @Result VALUES (N'FactPayment', @ins, 0);
 
