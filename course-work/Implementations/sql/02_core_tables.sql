@@ -1,16 +1,4 @@
-/* =============================================================================
-   02_core_tables.sql
-   Core (normalised) tables - implements the logical model 1:1.
-   Re-runnable: drops and recreates all core tables (all core data is lost).
 
-   Conventions
-     - Surrogate keys: INT IDENTITY; business keys get a UNIQUE constraint
-       (the loader matches incoming rows on them).
-     - Date ranges are half-open: [ValidFrom, ValidTo) and [StartDate, EndDate).
-       NULL end = still open.
-     - Timestamps are UTC unless the column name says otherwise.
-     - Money: DECIMAL(10,2) in the local currency of the row.
-   ============================================================================= */
 SET ANSI_NULLS ON;
 SET QUOTED_IDENTIFIER ON;   -- required by the filtered unique index on Subscription
 GO

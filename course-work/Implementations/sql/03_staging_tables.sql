@@ -1,16 +1,4 @@
-/* =============================================================================
-   03_staging_tables.sql
-   Staging (stg) tables - one per CSV file, same column order as the file.
-   Rows reference each other by business keys (Email, SourceKey, Guid ...);
-   core.usp_LoadFromStaging resolves them to core IDs.
 
-   Design choices
-     - Typed columns: the source is our own generator, so a bad value should
-       fail the load immediately instead of being converted silently.
-     - No keys or constraints: staging is truncated and refilled per batch;
-       all rules are enforced when the data moves into core.
-   Re-runnable: drops and recreates all staging tables.
-   ============================================================================= */
 SET ANSI_NULLS ON;
 SET QUOTED_IDENTIFIER ON;
 GO

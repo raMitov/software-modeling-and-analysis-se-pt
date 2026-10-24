@@ -1,23 +1,4 @@
-/* =============================================================================
-   08_reference_data.sql
-   Static reference data: regions, countries, currencies, maturity ratings,
-   genres, plans and plan prices. Re-runnable: inserts only missing rows
-   (matched on business keys), never deletes.
 
-   Plan prices (monthly, local currency) - sources and accuracy
-     US  real history:
-         - Basic closed to new members Jul 2023, retired for existing members
-           from Jul 2024 (end date 2024-10-01 is approximate)
-         - increases 2023-10-18 (Basic, Premium), 2025-01-21 (all),
-           2026-03-26 (all; date approximate)
-     BG  real: Netflix bills Bulgaria in EUR; price cut in Feb 2023
-         (effective date 2023-02-16 approximate). No ads plan in Bulgaria.
-     IN  real: prices unchanged since the Dec 2021 cut. Mobile plan; no ads plan.
-     Other countries: ONE approximate price level (2025-26 public price lists)
-         for the whole period - not their exact price history.
-     The ads plan is called "Standard with ads" for the whole period (it was
-     "Basic with ads" until late 2023).
-   ============================================================================= */
 SET ANSI_NULLS ON;
 SET QUOTED_IDENTIFIER ON;
 SET NOCOUNT ON;

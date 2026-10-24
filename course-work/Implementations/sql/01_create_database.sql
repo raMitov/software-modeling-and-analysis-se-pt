@@ -1,10 +1,4 @@
-/* =============================================================================
-   01_create_database.sql
-   Creates the NetflixDB database and its three layer schemas:
-     stg  - raw data exactly as delivered in the CSV files
-     core - the normalised model (logical diagram), the source of truth
-     dw   - star schema for reporting (Power BI)
-   ============================================================================= */
+
 SET ANSI_NULLS ON;
 SET QUOTED_IDENTIFIER ON;
 GO

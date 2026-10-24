@@ -1,10 +1,4 @@
-/* =============================================================================
-   10_load_day.sql
-   Live-load demo: loads ONE daily batch (2026-10-19 .. 2026-10-26) end to end:
-   CSV files -> stg -> core -> dw. Then refresh the Power BI report.
-   Set @DataRoot (as in 09) and @Day before running.
-   Running the same day twice is safe: nothing is loaded twice.
-   ============================================================================= */
+
 SET ANSI_NULLS ON;
 SET QUOTED_IDENTIFIER ON;
 SET NOCOUNT ON;

@@ -1,11 +1,4 @@
-/* =============================================================================
-   11_load_days.sql
-   Live-load demo for several days at once: loads every daily batch from
-   @FromDay to @ToDay (2026-10-19 .. 2026-10-26) in date order into core,
-   then refreshes the warehouse once. Then refresh the Power BI report.
-   Days must be loaded in order (a day can refer to rows created the day before);
-   days already loaded are skipped row by row, so overlapping ranges are safe.
-   Set @DataRoot (as in 09) and the two dates before running.
+/* 
    ============================================================================= */
 SET ANSI_NULLS ON;
 SET QUOTED_IDENTIFIER ON;
