@@ -1,11 +1,4 @@
-/* =============================================================================
-   06_triggers.sql
-   Business rules that a CHECK or FOREIGN KEY cannot express (they span rows
-   or tables). Both triggers are set-based: they validate every row of the
-   statement at once (inserted can hold 1 or 100 000 rows) and THROW, which
-   rolls back the whole statement - a bad batch never loads partially.
-   Re-runnable (CREATE OR ALTER).
-   ============================================================================= */
+
 SET ANSI_NULLS ON;
 SET QUOTED_IDENTIFIER ON;
 GO
@@ -13,8 +6,7 @@ GO
 USE NetflixDB;
 GO
 
-/* Rules 4 and 6:
-   - the title's maturity rating is within the profile's limit
+/* - the title's maturity rating is within the profile's limit
    - series need an episode of that same title; movies have no episode
    - the device belongs to the profile's account */
 CREATE OR ALTER TRIGGER core.TR_WatchSession_Validate
